@@ -1,4 +1,9 @@
-import BaseContent from '../baseContent';
+import BaseContent from '../BaseContent';
+import ButtonSocial from '../ButtonSocial';
+
+import LogoSvg from '@/assets/svg/logo'
+import BuyWhatsApp from '@/assets/svg/buyWhatsApp'
+
 import './styles.scss'
 
 const headerComponent = () => {
@@ -8,7 +13,21 @@ const headerComponent = () => {
     <div id="nav">
 
       <BaseContent>
-        <div>asdasdas</div>
+        <div className="baseInfo">
+
+          <div className="logo">
+            <LogoSvg />
+          </div>
+
+          <div className="buyWhatsapp">
+            <BuyWhatsApp />
+          </div>
+
+          <div className="socialContent">
+            <ButtonSocial type='instagram'/>
+            <ButtonSocial type='facebook'/>
+          </div>
+        </div>
       </BaseContent>
       
     </div>

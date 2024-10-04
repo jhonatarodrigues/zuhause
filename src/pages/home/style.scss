@@ -1,0 +1,161 @@
+@import "@/styles/colors.scss";
+
+.banner {
+  height: 27.5rem;
+  background: url("../../assets/image/banner.jpg") no-repeat center;
+}
+
+.looseFurniture {
+  padding: 6.25rem 0;
+  .title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $green;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 3.125rem;
+  }
+  .contentFurnitureItem {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .itemFurniture {
+    max-width: 9.75rem;
+    .iconContent {
+      width: 9.75rem;
+      height: 10.0625rem;
+      background: $lightGray;
+      border-radius: 0.625rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .itemLabel {
+      font-size: 1.125rem;
+      color: $green;
+      text-align: center;
+      margin-top: 1.875rem;
+    }
+  }
+}
+
+.baseInformation {
+  display: flex;
+  justify-content: space-between;
+  padding: 6.25rem 0;
+  .block {
+    background: $black;
+    border-radius: 0.625rem;
+    text-align: center;
+    margin-left: 3.125rem;
+    width: 100%;
+    padding: 3.125rem 1.875rem;
+    &:first-child {
+      margin-left: 0;
+    }
+    .title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: $lightGray;
+      margin-bottom: 0.9375rem;
+      text-transform: uppercase;
+      line-height: 2.5rem;
+    }
+    .text {
+      font-size: 1.125rem;
+      color: $lightGray;
+      line-height: 2.5rem;
+    }
+  }
+}
+
+#MonthOffer {
+  background-color: $lightGray;
+  padding: 6.25rem 0;
+  .contentTitle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3.125rem;
+    .title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: $black;
+      margin-bottom: 0.625rem;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: $black;
+    }
+    .button {
+      width: 17.625rem;
+    }
+  }
+  .contentOffer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .item {
+      background: $white;
+      padding: 1.875rem;
+      border-radius: 0.625rem;
+      .contentImage {
+        height: 11.3125rem;
+        border-radius: 0.625rem;
+        margin-bottom: 1.875rem;
+        background-size: cover !important;
+      }
+      .title {
+        font-size: 1rem;
+        color: $black;
+        margin-bottom: 1.875rem;
+      }
+      .price {
+        font-size: 0.75rem;
+        color: $lightGray2;
+        margin-bottom: 0.3125rem;
+      }
+      .newPrice {
+        font-size: 0.75rem;
+        color: $black;
+        margin-bottom: 1.875rem;
+        strong {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.lineFurniture {
+  padding: 6.25rem 0;
+  .title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $green;
+    text-align: center;
+    margin-bottom: 1.875rem;
+    text-transform: uppercase;
+  }
+  .contentImages {
+    display: flex;
+    flex-direction: row;
+    .one {
+      width: 27.8125rem;
+      background-size: cover !important;
+    }
+    .block {
+      margin-left: 1.875rem;
+      .two {
+        height: 15.625rem;
+        width: 39.6875rem;
+        background: #0f0;
+        margin-bottom: 1.875rem;
+        background-size: cover !important;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

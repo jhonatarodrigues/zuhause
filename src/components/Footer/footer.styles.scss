@@ -1,0 +1,52 @@
+@import "@/styles/colors.scss";
+
+#footer {
+  padding: 6.25rem 0;
+
+  .contentFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .logo {
+      width: 10.25rem;
+      height: 4.625rem;
+    }
+    .contentSocial {
+      display: flex;
+      flex-direction: row;
+      margin-top: 15px;
+    }
+
+    .navItem {
+      font-size: 1rem;
+      color: $black;
+      margin-top: 1.25rem;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .buyWhatsApp {
+      width: 22.5rem;
+      height: 6.25rem;
+    }
+    .title {
+      font-size: 1.125rem;
+      font-weight: 900;
+      color: $black;
+    }
+  }
+}
+
+.baseboard {
+  background: $green;
+  padding: 1.875rem 0;
+  p {
+    text-align: center;
+    color: $white;
+    font-size: 16px;
+    strong {
+      font-weight: 700;
+    }
+  }
+}

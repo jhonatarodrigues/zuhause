@@ -1,0 +1,12 @@
+@import "@/styles/colors.scss";
+
+.button {
+  background: $green;
+  padding: 0.875rem 1.25rem;
+  border-radius: 10px;
+  text-align: center;
+  p {
+    font-size: 1.125rem;
+    color: $white;
+  }
+}

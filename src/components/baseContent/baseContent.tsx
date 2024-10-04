@@ -1,3 +1,5 @@
+import './styles.scss';
+
 
 type IProps = {
   children: JSX.Element
@@ -7,7 +9,7 @@ const BaseContent = ({children}: IProps) => {
 
   return (
 
-    <div>
+    <div id='baseContent'>
       {children}
     </div>
   );

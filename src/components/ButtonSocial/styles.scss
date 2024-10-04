@@ -1,0 +1,12 @@
+@import "@/styles/colors.scss";
+
+.buttonSocial {
+  width: 2.875rem;
+  height: 2.875rem;
+  overflow: hidden;
+  border-radius: 100%;
+  margin-left: 0.9375rem;
+  &:first-child {
+    margin-left: 0;
+  }
+}
