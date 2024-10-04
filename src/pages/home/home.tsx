@@ -16,8 +16,10 @@ import IconHomeWear from '@/assets/svg/homeWear';
 import IconQuarto from '@/assets/svg/quarto';
 import IconSalaStar from '@/assets/svg/salaStar';
 import IconSalaJantar from '@/assets/svg/salaJantar';
-import ImageCook from '@/assets/image/cook.jpg';
 import ImageBed from '@/assets/image/bed.jpg';
+import BoxOffer from "@/components/BoxOffer";
+import ContactInformation from "@/components/ContactInformation";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
 
@@ -34,12 +36,12 @@ const HomePage = () => {
         slidesToSlide: 1
       },
       tablet: {
-        breakpoint: { max: 1024, min: 464 },
+        breakpoint: { max: 1024, min: 667 },
         items: 2,
         slidesToSlide: 2 
       },
       mobile: {
-        breakpoint: { max: 464, min: 0 },
+        breakpoint: { max: 667, min: 0 },
         items: 1,
         slidesToSlide: 1 
       }
@@ -137,78 +139,66 @@ const HomePage = () => {
 
   )}
 
-  const InformationBlocks = () => (
-    <BaseContent>
-      <div className="baseInformation">
-        <div className="block">
-          <div className="title">
-            Atendimento
-          </div>
-          <p className="text">
-            Segunda à Sexta 09h às 12h e 13h30 às 18h30, <br/>
-            Sábado 09h às 13h
-          </p>
-        </div>
-        <div className="block">
-          <div className="title">
-          Zuhause Móveis e <br></br>Colchões Showroom
-          </div>
-          <p className="text">
-          R. Colômbia, 285 - Vila Frezzarin, Americana - SP
-          </p>
-        </div>
+
+  const MonthOffer = () => {
+    const responsiveCarousel = {
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 1,
+        slidesToSlide: 1
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 667 },
+        items: 1,
+        slidesToSlide: 1 
+      },
+      mobile: {
+        breakpoint: { max: 667, min: 0 },
+        items: 1,
+        slidesToSlide: 1 
+      }
+    }
+    return (
+      <div id="MonthOfferHome">
+        <BaseContent>
+          <>
+            <div className="contentTitle">
+              <div>
+                <div className="title">
+                  Ofertas do mês
+                </div>
+                <div className="subtitle">
+                  aproveite nossas ofertas imperdíveis
+                </div>
+              </div>
+              <div>
+              <Link to="/offer-month">
+                <Button title="Ver mais produtos" />
+              </Link>
+              </div>
+            </div>
+            <div className="contentOffer">
+              <BoxOffer />
+              <BoxOffer />
+              <BoxOffer />
+            </div>
+            <div className="contentOfferMobile">
+              <Carousel 
+                responsive={responsiveCarousel} 
+                showDots={false} 
+                infinite={false}
+              >
+                <BoxOffer />
+                <BoxOffer />
+                <BoxOffer />
+              </Carousel>
+            </div>
+            <Button title="Ver mais produtos" className="MoreProductsMobile" />
+          </>
+        </BaseContent>
       </div>
-    </BaseContent>
-
-  );
-
-  const MonthOffer = () => (
-    <div id="MonthOffer">
-      <BaseContent>
-        <>
-          <div className="contentTitle">
-            <div>
-              <div className="title">
-                Ofertas do mês
-              </div>
-              <div className="subtitle">
-                aproveite nossas ofertas imperdíveis
-              </div>
-            </div>
-            <div>
-            <Button title="Ver mais produtos" />
-            </div>
-          </div>
-          <div className="contentOffer">
-            <div className="item">
-              <div className="contentImage" style={{background: `url(${ImageCook}) center no-repeat`}}>
-              </div>
-              <div className="title">Armário de Cozinha Completo 330cm- preto</div>
-              <div className="price">R$ 1,200</div>
-              <div className="newPrice">por: <strong>R$ 1,200</strong></div>
-              <Button title="Fale com um consultor" />
-            </div>
-            <div className="item">
-              <div className="contentImage" style={{background: `url(${ImageCook}) center no-repeat`}}>
-              </div>
-              <div className="title">Armário de Cozinha Completo 330cm- preto</div>
-              <div className="price">R$ 1,200</div>
-              <div className="newPrice">por: <strong>R$ 1,200</strong></div>
-              <Button title="Fale com um consultor" />
-            </div>
-            <div className="item">
-              <div className="contentImage" style={{background: `url(${ImageCook}) center no-repeat`}}>
-              </div>
-              <div className="title">Armário de Cozinha Completo 330cm- preto</div>
-              <div className="price">R$ 1,200</div>
-              <div className="newPrice">por: <strong>R$ 1,200</strong></div>
-              <Button title="Fale com um consultor" />
-            </div>
-          </div>
-        </>
-      </BaseContent>
-    </div>
-  );
+    );
+  };
 
   const LineFurniture = () => (
     <BaseContent>
@@ -233,7 +223,7 @@ const HomePage = () => {
       <HeaderComponent />
       <Banner />
       <LooseFurniture />
-      <InformationBlocks />
+      <ContactInformation />
       <MonthOffer />
       <LineFurniture />
       <Newsletter />

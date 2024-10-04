@@ -1,12 +1,26 @@
 @import "@/styles/colors.scss";
+@import "@/styles/functions.scss";
 
 .button {
   background: $green;
   padding: 0.875rem 1.25rem;
   border-radius: 10px;
   text-align: center;
+  text-decoration: none;
+
+  -webkit-box-shadow: 0 6px 6.5px -2px #aba9a9;
+  -moz-box-shadow: 0 6px 6.5px -2px #aba9a9;
+  box-shadow: 0 6px 6.5px -2px #aba9a9;
+
   p {
     font-size: 1.125rem;
     color: $white;
+    text-decoration: none;
+    @include responsive("mobile") {
+      font-size: 0.875rem;
+    }
+  }
+  @include responsive("mobile") {
+    padding: 0.625rem 1rem;
   }
 }

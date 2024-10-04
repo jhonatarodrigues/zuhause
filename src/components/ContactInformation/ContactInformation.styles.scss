@@ -1,0 +1,53 @@
+@import "@/styles/colors.scss";
+@import "@/styles/functions.scss";
+
+.baseInformation {
+  display: flex;
+  justify-content: space-between;
+  padding: 6.25rem 0;
+  @include responsive("mobile") {
+    padding: 3.125rem 0;
+    flex-direction: column;
+  }
+  .block {
+    background: $black;
+    border-radius: 0.625rem;
+    text-align: center;
+    margin-left: 3.125rem;
+    width: 100%;
+    padding: 3.125rem 1.875rem;
+    &:first-child {
+      margin-left: 0;
+    }
+    @include responsive("mobile") {
+      margin-left: 0;
+      padding: 1.875rem 1.5625rem;
+      width: auto;
+      margin-bottom: 0.9375rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: $lightGray;
+      margin-bottom: 0.9375rem;
+      text-transform: uppercase;
+      line-height: 2.5rem;
+      @include responsive("mobile") {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+      }
+    }
+    .text {
+      font-size: 1.125rem;
+      color: $lightGray;
+      line-height: 2.5rem;
+      @include responsive("mobile") {
+        font-size: 0.875rem;
+        line-height: 1.5625rem;
+      }
+    }
+  }
+}

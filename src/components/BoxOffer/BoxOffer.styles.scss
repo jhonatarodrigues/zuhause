@@ -1,0 +1,48 @@
+@import "@/styles/colors.scss";
+@import "@/styles/functions.scss";
+
+.item {
+  background: $white;
+  padding: 1.875rem;
+  border-radius: 0.625rem;
+  border: 1px solid #d9d9d9;
+
+  -webkit-box-shadow: 0 8px 10px 3px #e3dede;
+  -moz-box-shadow: 0 8px 10px 3px #e3dede;
+  box-shadow: 0 8px 10px 3px #e3dede;
+
+  @include responsive("mobile") {
+    padding: 0.9375rem;
+  }
+  .contentImage {
+    height: 11.3125rem;
+    border-radius: 0.625rem;
+    margin-bottom: 1.875rem;
+    background-size: cover !important;
+    @include responsive("mobile") {
+      height: 6.25rem;
+    }
+  }
+  .title {
+    font-size: 1rem;
+    color: $black;
+    margin-bottom: 1.875rem;
+    @include responsive("mobile") {
+      font-size: 0.875rem;
+      margin-bottom: 0.9375rem;
+    }
+  }
+  .price {
+    font-size: 0.75rem;
+    color: $lightGray2;
+    margin-bottom: 0.3125rem;
+  }
+  .newPrice {
+    font-size: 0.75rem;
+    color: $black;
+    margin-bottom: 1.875rem;
+    strong {
+      font-size: 1rem;
+    }
+  }
+}

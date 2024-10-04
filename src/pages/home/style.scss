@@ -1,12 +1,19 @@
 @import "@/styles/colors.scss";
+@import "@/styles/functions.scss";
 
 .banner {
   height: 27.5rem;
   background: url("../../assets/image/banner.jpg") no-repeat center;
+  @include responsive("mobile") {
+    height: 15.625rem;
+  }
 }
 
 .looseFurniture {
   padding: 6.25rem 0;
+  @include responsive("mobile") {
+    padding: 3.125rem 0;
+  }
   .title {
     font-size: 1.5rem;
     font-weight: 900;
@@ -14,6 +21,10 @@
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 3.125rem;
+    @include responsive("mobile") {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
   }
   .contentFurnitureItem {
     display: flex;
@@ -39,43 +50,19 @@
   }
 }
 
-.baseInformation {
-  display: flex;
-  justify-content: space-between;
-  padding: 6.25rem 0;
-  .block {
-    background: $black;
-    border-radius: 0.625rem;
-    text-align: center;
-    margin-left: 3.125rem;
-    width: 100%;
-    padding: 3.125rem 1.875rem;
-    &:first-child {
-      margin-left: 0;
-    }
-    .title {
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: $lightGray;
-      margin-bottom: 0.9375rem;
-      text-transform: uppercase;
-      line-height: 2.5rem;
-    }
-    .text {
-      font-size: 1.125rem;
-      color: $lightGray;
-      line-height: 2.5rem;
-    }
-  }
-}
-
-#MonthOffer {
+#MonthOfferHome {
   background-color: $lightGray;
   padding: 6.25rem 0;
+  @include responsive("mobile") {
+    padding: 3.125rem 0;
+  }
   .contentTitle {
     display: flex;
     justify-content: space-between;
     margin-bottom: 3.125rem;
+    @include responsive("mobile") {
+      display: none;
+    }
     .title {
       font-size: 1.5rem;
       font-weight: 900;
@@ -91,44 +78,39 @@
       width: 17.625rem;
     }
   }
-  .contentOffer {
+  .contentOffer,
+  .contentOfferMobile {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    .item {
-      background: $white;
-      padding: 1.875rem;
-      border-radius: 0.625rem;
-      .contentImage {
-        height: 11.3125rem;
-        border-radius: 0.625rem;
-        margin-bottom: 1.875rem;
-        background-size: cover !important;
-      }
-      .title {
-        font-size: 1rem;
-        color: $black;
-        margin-bottom: 1.875rem;
-      }
-      .price {
-        font-size: 0.75rem;
-        color: $lightGray2;
-        margin-bottom: 0.3125rem;
-      }
-      .newPrice {
-        font-size: 0.75rem;
-        color: $black;
-        margin-bottom: 1.875rem;
-        strong {
-          font-size: 1rem;
-        }
-      }
+  }
+  .contentOffer {
+    @include responsive("mobile") {
+      display: none;
+    }
+  }
+  .contentOfferMobile {
+    display: none;
+    @include responsive("mobile") {
+      display: block;
+    }
+  }
+
+  .MoreProductsMobile {
+    display: none;
+    @include responsive("mobile") {
+      display: block;
+      margin-top: 3.125rem;
+      text-align: center;
     }
   }
 }
 
 .lineFurniture {
   padding: 6.25rem 0;
+  @include responsive("mobile") {
+    padding: 3.125rem 0;
+  }
   .title {
     font-size: 1.5rem;
     font-weight: 900;
@@ -136,24 +118,44 @@
     text-align: center;
     margin-bottom: 1.875rem;
     text-transform: uppercase;
+    @include responsive("mobile") {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
   }
   .contentImages {
     display: flex;
     flex-direction: row;
+    @include responsive("mobile") {
+      flex-direction: column;
+    }
     .one {
       width: 27.8125rem;
       background-size: cover !important;
+      @include responsive("mobile") {
+        width: 100%;
+        height: 15.625rem;
+        margin-bottom: 1.875rem;
+      }
     }
     .block {
       margin-left: 1.875rem;
+      @include responsive("mobile") {
+        margin-left: 0;
+      }
       .two {
         height: 15.625rem;
         width: 39.6875rem;
         background: #0f0;
         margin-bottom: 1.875rem;
         background-size: cover !important;
+
         &:last-child {
           margin-bottom: 0;
+        }
+        @include responsive("mobile") {
+          width: 100%;
+          height: 15.625rem;
         }
       }
     }

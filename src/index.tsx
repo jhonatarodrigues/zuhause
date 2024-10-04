@@ -4,15 +4,14 @@ import './styles/global.scss'
 
 import reportWebVitals from './reportWebVitals';
 
-import TermsAndConditions from './pages/termsAndConditions'
+import Routes from '@/routes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <TermsAndConditions />
+    <Routes />
   </React.StrictMode>
 );
 

@@ -1,6 +1,13 @@
+@import "@/styles/functions.scss";
+
 #baseContent {
   width: 85vw;
   max-width: 90rem;
   margin-left: auto;
   margin-right: auto;
+  @include responsive("mobile") {
+    width: 100%;
+    padding: 0px 0.9375rem;
+    margin: 0;
+  }
 }

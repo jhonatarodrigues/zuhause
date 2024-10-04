@@ -1,3 +1,5 @@
+@import "@/styles/functions.scss";
+
 #nav {
   padding: 1.875rem 0;
   position: relative;
@@ -7,6 +9,10 @@
   -moz-box-shadow: 1.5px 0.5px 10px 1px #0c0c0c;
   box-shadow: 1.5px 0.5px 10px 1px #0c0c0c;
 
+  @include responsive("mobile") {
+    padding: 0.9375rem 0;
+  }
+
   .baseInfo {
     display: flex;
     justify-content: space-between;
@@ -14,14 +20,30 @@
     .logo {
       width: 9.875rem;
       height: 2.6875rem;
+      @include responsive("mobile") {
+        width: 40%;
+        svg {
+          width: 100%;
+        }
+      }
     }
     .buyWhatsapp {
       width: 21.875rem;
       height: 4.5625rem;
+      @include responsive("mobile") {
+        width: 50%;
+        svg {
+          width: 100%;
+        }
+      }
     }
     .socialContent {
       display: flex;
       flex-direction: row;
+
+      @include responsive("mobile") {
+        display: none;
+      }
     }
   }
 }

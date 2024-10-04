@@ -6,6 +6,7 @@ import CompleteLogo from '@/assets/svg/completeLogo'
 import BuyWhatsApp from '@/assets/svg/buyWhatsApp'
 
 import './footer.styles.scss'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -24,10 +25,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="contentNav">
-            <div className="navItem">Quem Somos</div>
-            <div className="navItem">Ofertas do mês</div>
-            <div className="navItem">Fale Conosco</div>
-            <div className="navItem">Termos de serviço</div>
+            <Link to="/about"><div className="navItem">Quem Somos</div></Link>
+            <Link to="/offer-month"><div className="navItem">Ofertas do mês</div></Link>
+            <Link to="/"><div className="navItem">Fale Conosco</div></Link>
+            <Link to="/terms-and-conditions"><div className="navItem">Termos de serviço</div></Link>
           </div>
           <div>
             <div className="buyWhatsApp">
@@ -52,7 +53,7 @@ const Footer = () => {
     <div className="baseboard">
       <BaseContent>
         <p>
-          <strong>Zuhause Móveis e Colchões Showroom</strong>  - R. Colômbia, 285 - Vila Frezzarin, Americana - SP
+          <strong>Zuhause Móveis e Colchões Showroom</strong> <br /> - R. Colômbia, 285 - Vila Frezzarin, Americana - SP
         </p>
       </BaseContent>
       </div>

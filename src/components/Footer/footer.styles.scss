@@ -1,12 +1,21 @@
 @import "@/styles/colors.scss";
+@import "@/styles/functions.scss";
 
 #footer {
   padding: 6.25rem 0;
+  @include responsive("mobile") {
+    padding: 3.125rem 0;
+  }
 
   .contentFooter {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @include responsive("mobile") {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     .logo {
       width: 10.25rem;
       height: 4.625rem;
@@ -15,25 +24,49 @@
       display: flex;
       flex-direction: row;
       margin-top: 15px;
+      @include responsive("mobile") {
+        justify-content: center;
+        margin-bottom: 0.9375rem;
+      }
+    }
+    .contentNav {
+      @include responsive("mobile") {
+        display: none;
+      }
     }
 
     .navItem {
       font-size: 1rem;
       color: $black;
       margin-top: 1.25rem;
+      @include responsive("mobile") {
+        text-align: center;
+        margin-top: 0.625rem;
+      }
+    }
+
+    a {
       &:first-child {
-        margin-top: 0;
+        .navItem {
+          margin-top: 0;
+        }
       }
     }
 
     .buyWhatsApp {
       width: 22.5rem;
       height: 6.25rem;
+      @include responsive("mobile") {
+        display: none;
+      }
     }
     .title {
       font-size: 1.125rem;
       font-weight: 900;
       color: $black;
+      @include responsive("mobile") {
+        text-align: center;
+      }
     }
   }
 }
@@ -47,6 +80,12 @@
     font-size: 16px;
     strong {
       font-weight: 700;
+    }
+    br {
+      display: none;
+      @include responsive("mobile") {
+        display: block;
+      }
     }
   }
 }

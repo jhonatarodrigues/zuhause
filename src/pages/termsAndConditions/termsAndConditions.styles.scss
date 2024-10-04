@@ -1,12 +1,19 @@
 @import "@/styles/colors.scss";
+@import "@/styles/functions.scss";
 
 .TermsAndConditions {
   padding: 6.25rem 0;
+  @include responsive("mobile") {
+    padding: 3.125rem 0;
+  }
 
   .box {
     background: $lightGray;
     padding: 1.875rem 3.125rem;
     border-radius: 0.625rem;
+    @include responsive("mobile") {
+      padding: 1.875rem;
+    }
   }
   .title {
     font-size: 1.5rem;
@@ -19,6 +26,10 @@
     &:first-child {
       margin-top: 0;
     }
+    @include responsive("mobile") {
+      font-size: 1.125rem;
+      margin-bottom: 1.875rem;
+    }
   }
   .text {
     font-size: 1.125rem;
@@ -28,6 +39,10 @@
     margin-right: auto;
     strong {
       font-weight: 700;
+    }
+    @include responsive("mobile") {
+      font-size: 0.875rem;
+      line-height: 1.5625rem;
     }
   }
 }
