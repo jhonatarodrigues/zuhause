@@ -4,7 +4,7 @@ import './styles/global.scss'
 
 import reportWebVitals from './reportWebVitals';
 
-import HomePage from './pages/home'
+import TermsAndConditions from './pages/termsAndConditions'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <HomePage />
+    <TermsAndConditions />
   </React.StrictMode>
 );
 

@@ -1,0 +1,24 @@
+@import "@/styles/colors.scss";
+
+.WhoWe {
+  padding: 9.375rem 0;
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 3.125rem;
+    text-transform: uppercase;
+    color: $green;
+    text-align: center;
+  }
+  .text {
+    font-size: 1.125rem;
+    color: $black;
+    line-height: 2.25rem;
+    max-width: 69.375rem;
+    margin-left: auto;
+    margin-right: auto;
+    strong {
+      font-weight: 700;
+    }
+  }
+}
