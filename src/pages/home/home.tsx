@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import HeaderComponent from '@/components/Header';
 import Carousel from "react-multi-carousel";
@@ -20,8 +20,26 @@ import ImageBed from '@/assets/image/bed.jpg';
 import BoxOffer from "@/components/BoxOffer";
 import ContactInformation from "@/components/ContactInformation";
 import { Link } from "react-router-dom";
+import { useProducts } from "@/hooks/useProducts";
+import Product from "@/models/product";
 
 const HomePage = () => {
+  const [products, setProducts] = useState<Product[]>();
+  const { getProductsHome } = useProducts();
+
+
+  
+
+  useEffect(() => {
+    const getBaseProducts = async () => {
+      const response = await getProductsHome();
+
+      setProducts(response);
+    };
+
+    
+    getBaseProducts();
+  }, []);
 
 
   const Banner = () => (
@@ -178,9 +196,10 @@ const HomePage = () => {
               </div>
             </div>
             <div className="contentOffer">
-              <BoxOffer />
-              <BoxOffer />
-              <BoxOffer />
+              {products && products.map((product, index) => (
+                <BoxOffer />
+              ))}              
+              
             </div>
             <div className="contentOfferMobile">
               <Carousel 
