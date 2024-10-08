@@ -197,20 +197,22 @@ const HomePage = () => {
             </div>
             <div className="contentOffer">
               {products && products.map((product, index) => (
-                <BoxOffer />
+                <BoxOffer product={product} />
               ))}              
               
             </div>
             <div className="contentOfferMobile">
-              <Carousel 
-                responsive={responsiveCarousel} 
-                showDots={false} 
-                infinite={false}
-              >
-                <BoxOffer />
-                <BoxOffer />
-                <BoxOffer />
-              </Carousel>
+              {products && products.length > 0 && (
+                <Carousel 
+                  responsive={responsiveCarousel} 
+                  showDots={false} 
+                  infinite={false}
+                >
+                  {products && products.map((product, index) => (
+                    <BoxOffer product={product} />
+                  ))} 
+                </Carousel>
+              )}
             </div>
             <Button title="Ver mais produtos" className="MoreProductsMobile" />
           </>

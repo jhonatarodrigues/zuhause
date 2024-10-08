@@ -6,10 +6,18 @@
   padding: 1.875rem;
   border-radius: 0.625rem;
   border: 1px solid #d9d9d9;
+  width: 100%;
+  margin: 0 0.9375rem;
 
   -webkit-box-shadow: 0 8px 10px 3px #e3dede;
   -moz-box-shadow: 0 8px 10px 3px #e3dede;
   box-shadow: 0 8px 10px 3px #e3dede;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
 
   @include responsive("mobile") {
     padding: 0.9375rem;
@@ -19,6 +27,7 @@
     border-radius: 0.625rem;
     margin-bottom: 1.875rem;
     background-size: cover !important;
+    background: $lightGray;
     @include responsive("mobile") {
       height: 6.25rem;
     }
@@ -40,9 +49,14 @@
   .newPrice {
     font-size: 0.75rem;
     color: $black;
-    margin-bottom: 1.875rem;
     strong {
       font-size: 1rem;
+    }
+  }
+  .button {
+    margin-top: 1.875rem;
+    @include responsive("mobile") {
+      margin-top: 0.9375rem;
     }
   }
 }

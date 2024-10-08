@@ -209,32 +209,6 @@ add_action( 'init', 'twentytwentyfour_pattern_categories' );
 
 
 
-
-function expose_acf_fields_in_rest_api() {
-    // Verifica se a função acf_add_local_field_group existe
-    if (function_exists('acf_add_local_field_group')) {
-        // Adiciona o filtro para cada tipo de post que você deseja expor os campos ACF
-        add_filter('rest_prepare_products', 'add_acf_fields_to_rest_response', 10, 3);
-    }
-}
-
-function add_acf_fields_to_rest_response($response, $post, $request) {
-    // Obtém todos os campos ACF para o post atual
-    $acf_fields = get_fields($post->ID);
-
-    // Adiciona os campos ACF à resposta da API REST
-    if ($acf_fields) {
-        $response->data['acf'] = $acf_fields;
-    }
-
-    return $response;
-}
-
-// Hooking up our function to theme setup
-add_action('init', 'expose_acf_fields_in_rest_api');
-
-
-
 // Adiciona o campo de thumbnail à REST API
 function add_thumbnail_to_rest_response($response, $post, $request) {
     // Verifica se o post tem uma imagem destacada
@@ -251,15 +225,6 @@ function add_thumbnail_to_rest_response($response, $post, $request) {
     return $response;
 }
 
-// Hooking up our function to theme setup
-add_action('rest_api_init', function() {
-    // Adiciona o filtro para cada tipo de post que você deseja expor o thumbnail
-    register_rest_field('products', 'thumbnail_url', array(
-        'get_callback' => 'get_thumbnail_url',
-        'update_callback' => null,
-        'schema' => null,
-    ));
-});
 
 function get_thumbnail_url($object, $field_name, $request) {
     // Verifica se o post tem uma imagem destacada
@@ -269,6 +234,42 @@ function get_thumbnail_url($object, $field_name, $request) {
     }
     return null;
 }
+
+
+
+function remove_menus() {
+    // Remove o menu de Posts
+    remove_menu_page('edit.php');
+    
+    // Remove o menu de Mídia
+    // remove_menu_page('upload.php');
+    
+    // Remove o menu de Páginas
+    remove_menu_page('edit.php?post_type=page');
+    
+    // Remove o menu de Comentários
+    remove_menu_page('edit-comments.php');
+    
+    // Remove o menu de Aparência
+    remove_menu_page('themes.php');
+    
+    // Remove o menu de Plugins
+    remove_menu_page('plugins.php');
+    
+    // Remove o menu de Usuários
+    remove_menu_page('users.php');
+    
+    // Remove o menu de Ferramentas
+    remove_menu_page('tools.php');
+    
+    // Remove o menu de Configurações
+    remove_menu_page('options-general.php');
+    
+    // Remove o menu de Custom Post Type 'products'
+    // remove_menu_page('edit.php?post_type=products');
+}
+
+add_action('admin_menu', 'remove_menus');
 
 
 /* Custom Post Type Start */
@@ -289,3 +290,66 @@ function create_posttype_products() {
 }
 	// Hooking up our function to theme setup
 add_action( 'init', 'create_posttype_products' );	
+
+
+/* Custom Post Type Start */
+function create_posttype_home_image() {
+	register_post_type( 'home_image',
+		array(
+			'labels' => array(
+			'name' => __( 'Imagem Home' ),
+			'singular_name' => __( 'Imagem Home' )
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'home_image'),
+			'supports' => array( 'title','thumbnail' ),
+			'show_in_rest' => true 
+		)
+	);
+}
+	// Hooking up our function to theme setup
+add_action( 'init', 'create_posttype_home_image' );	
+
+
+
+// Hooking up our function to theme setup
+add_action('rest_api_init', function() {
+	// Adiciona o filtro para cada tipo de post que você deseja expor o thumbnail
+	register_rest_field('products', 'thumbnail_url', array(
+			'get_callback' => 'get_thumbnail_url',
+			'update_callback' => null,
+			'schema' => null,
+	));
+	register_rest_field('home_image', 'thumbnail_url', array(
+		'get_callback' => 'get_thumbnail_url',
+		'update_callback' => null,
+		'schema' => null,
+));
+});
+
+
+function expose_acf_fields_in_rest_api() {
+    // Verifica se a função acf_add_local_field_group existe
+    if (function_exists('acf_add_local_field_group')) {
+        // Adiciona o filtro para o Custom Post Type 'products'
+        add_filter('rest_prepare_products', 'add_acf_fields_to_rest_response', 10, 3);
+        // Adiciona o filtro para o Custom Post Type 'homeImage'
+        add_filter('rest_prepare_homeImage', 'add_acf_fields_to_rest_response', 10, 3);
+    }
+}
+
+function add_acf_fields_to_rest_response($response, $post, $request) {
+    // Obtém todos os campos ACF para o post atual
+    $acf_fields = get_fields($post->ID);
+
+    // Adiciona os campos ACF à resposta da API REST
+    if ($acf_fields) {
+        $response->data['acf'] = $acf_fields;
+    }
+
+    return $response;
+}
+
+// Hooking up our function to theme setup
+add_action('init', 'expose_acf_fields_in_rest_api');

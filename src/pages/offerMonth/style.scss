@@ -43,4 +43,12 @@
       margin: 25px auto;
     }
   }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.125rem;
+    @include responsive("mobile") {
+      margin-top: 1.875rem;
+    }
+  }
 }
