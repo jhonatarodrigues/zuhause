@@ -1,5 +1,4 @@
 import BaseContent from '../BaseContent';
-import Button from '../Button';
 import ButtonSocial from '../ButtonSocial';
 
 import CompleteLogo from '@/assets/svg/completeLogo'
@@ -17,7 +16,9 @@ const Footer = () => {
         <div className="contentFooter">
           <div>
             <div className="logo">
-              <CompleteLogo />
+              <Link to="/">
+                <CompleteLogo />
+              </Link>
             </div>
             <div className="contentSocial">
               <ButtonSocial type='instagram'/>
@@ -32,7 +33,9 @@ const Footer = () => {
           </div>
           <div>
             <div className="buyWhatsApp">
-              <BuyWhatsApp />
+              <a href="https://wa.me/+5519989582085?text=olá, vim pelo site da Zuhause" target='_blank' rel="noreferrer" >
+                <BuyWhatsApp />
+              </a>
             </div>
           </div>
           <div>

@@ -6,12 +6,13 @@ import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import BoxOffer from "@/components/BoxOffer";
 
-import BuyWhatsApp from '@/assets/svg/buyWhatsApp';
 
-import './style.scss'
+
 import ContactInformation from "@/components/ContactInformation";
 import { useProducts } from "@/hooks/useProducts";
 import Product from "@/models/product";
+import ArrowRight from "@/assets/svg/arrowRight";
+import './style.scss'
 
 
 const OfferMonth = () => {
@@ -27,7 +28,7 @@ const OfferMonth = () => {
     const getBaseProducts = async () => {
       const {products, totalPages} = await getProducts({
         page: page,
-        perPage: 2
+        perPage: 6
       });
 
       setProducts(products);
@@ -65,15 +66,17 @@ const OfferMonth = () => {
               ))}
             </div>
             
-            <div className="pagination">
-              <button onClick={handlePreviousPage} disabled={page === 1}>
-                Anterior
-              </button>
-              <span>Página {page} de {totalPages}</span>
-              <button onClick={handleNextPage} disabled={page === totalPages}>
-                Próxima
-              </button>
-            </div>
+            {totalPages > 1 && (
+              <div className="pagination">
+                <button onClick={handlePreviousPage} disabled={page === 1}>
+                  <ArrowRight />
+                </button>
+                <p>Página {page} de {totalPages}</p>
+                <button onClick={handleNextPage} disabled={page === totalPages}>
+                  <ArrowRight />
+                </button>
+              </div>
+            )}
             <ContactInformation />
           </>
         </BaseContent>

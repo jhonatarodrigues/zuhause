@@ -28,6 +28,19 @@
       grid-template-columns: 1fr 1fr;
       grid-gap: 15px;
     }
+
+    .item {
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+      &:nth-child(3n + 1) {
+        margin-left: 0;
+      }
+
+      @include responsive("mobile") {
+        margin: 0;
+      }
+    }
   }
   .BuyWhatsApp {
     width: 33.75rem;
@@ -46,9 +59,34 @@
   .pagination {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 3.125rem;
     @include responsive("mobile") {
       margin-top: 1.875rem;
+    }
+    p {
+      font-size: 1.125rem;
+      color: $black;
+      margin: 0 1.25rem;
+      @include responsive("mobile") {
+        font-size: 0.875rem;
+        margin: 0 0.625rem;
+      }
+    }
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      &:first-child {
+        transform: rotate(-180deg);
+      }
+      svg {
+        path {
+          fill: $green;
+        }
+      }
     }
   }
 }

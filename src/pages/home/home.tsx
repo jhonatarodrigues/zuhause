@@ -16,19 +16,41 @@ import IconHomeWear from '@/assets/svg/homeWear';
 import IconQuarto from '@/assets/svg/quarto';
 import IconSalaStar from '@/assets/svg/salaStar';
 import IconSalaJantar from '@/assets/svg/salaJantar';
-import ImageBed from '@/assets/image/bed.jpg';
 import BoxOffer from "@/components/BoxOffer";
 import ContactInformation from "@/components/ContactInformation";
 import { Link } from "react-router-dom";
 import { useProducts } from "@/hooks/useProducts";
 import Product from "@/models/product";
+import { useHome } from "@/hooks/useHome";
+import ImageHome from "@/models/imageHome";
+import Banner from "@/models/banner";
 
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>();
+  const [imageOrnament, setImageOrnament] = useState<ImageHome>();
+  const [banner, setBanner] = useState<Banner[]>();
   const { getProductsHome } = useProducts();
+  const { getImageOrnamentHome, getBanner } = useHome();
 
+  useEffect(() => {
+    const getBannerHome = async () => {
+      const response = await getBanner();
 
-  
+      setBanner(response);
+    }
+
+    getBannerHome();
+  }, []);
+
+  useEffect(() => {
+    const getImageHome = async () => {
+      const response = await getImageOrnamentHome();
+
+      setImageOrnament(response);
+    }
+
+    getImageHome();
+  }, []);  
 
   useEffect(() => {
     const getBaseProducts = async () => {
@@ -41,10 +63,43 @@ const HomePage = () => {
     getBaseProducts();
   }, []);
 
+  const Banner = () => {
+    const responsiveCarousel = {
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 1,
+        slidesToSlide: 1
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 667 },
+        items: 1,
+        slidesToSlide: 21
+      },
+      mobile: {
+        breakpoint: { max: 667, min: 0 },
+        items: 1,
+        slidesToSlide: 1 
+      }
+    }
 
-  const Banner = () => (
-    <div className="banner"></div>
-  );
+    return (
+      <div className="banner">
+        {banner && banner.length > 0 && (
+          <Carousel 
+            responsive={responsiveCarousel} 
+            showDots
+            infinite={false}
+            containerClass="carousel-container-home"
+          >
+            {banner && banner.map((banner, index) => (
+              <div className="imageBanner" style={{background: banner.thumbnail_url? `url(${banner.thumbnail_url}) center no-repeat` : ''}}></div>
+            ))}
+            
+          </Carousel>
+        )}
+      </div>
+    )
+  }
 
   const LooseFurniture = () => {
     const responsiveCarousel = {
@@ -228,10 +283,10 @@ const HomePage = () => {
           Linha completa em móveis soltos
         </div>
         <div className="contentImages">
-          <div className="one" style={{background: `url(${ImageBed}) center no-repeat`}}></div>
+          <div className="one" style={{background: imageOrnament?.acf.banner_home1 ? `url(${imageOrnament?.acf.banner_home1}) center no-repeat` : ''}}></div>
           <div className="block">
-            <div className="two" style={{background: `url(${ImageBed}) top no-repeat`}}></div>
-            <div className="two" style={{background: `url(${ImageBed}) bottom no-repeat`}}></div>
+            <div className="two" style={{background: imageOrnament?.acf.banner_home2 ? `url(${imageOrnament?.acf.banner_home2}) top no-repeat` : ''}}></div>
+            <div className="two" style={{background: imageOrnament?.acf.banner_home3 ? `url(${imageOrnament?.acf.banner_home3}) bottom no-repeat`: ''}}></div>
           </div>
         </div>
       </div>

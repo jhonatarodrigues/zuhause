@@ -11,8 +11,16 @@ const ButtonSocial = ({type} : ButtonSocialProps) => {
 
   return (
     <div className="buttonSocial">
-      {type === 'instagram' && <Instagram />}
-      {type === 'facebook' && <Facebook />}
+      {type === 'instagram' && (
+        <a href="https://www.instagram.com/zuhausemoveisecolchoes/?hl=pt-br" target='_blank' rel="noreferrer">
+          <Instagram />
+        </a>
+      )}
+      {type === 'facebook' && (
+        <a href="https://www.facebook.com/zuhausemoveisecolchoes/?locale=pt_BR" target='_blank' rel="noreferrer">
+          <Facebook />
+        </a>
+      )}
     </div>
   )
 }

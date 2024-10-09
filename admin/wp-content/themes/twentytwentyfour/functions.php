@@ -303,13 +303,32 @@ function create_posttype_home_image() {
 			'public' => true,
 			'has_archive' => false,
 			'rewrite' => array('slug' => 'home_image'),
-			'supports' => array( 'title','thumbnail' ),
+			'supports' => array( 'title' ),
 			'show_in_rest' => true 
 		)
 	);
 }
 	// Hooking up our function to theme setup
 add_action( 'init', 'create_posttype_home_image' );	
+
+/* Custom Post Type Start */
+function create_posttype_banner() {
+	register_post_type( 'banner',
+		array(
+			'labels' => array(
+				'name' => __( 'Banners' ),
+				'singular_name' => __( 'Banner' )
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'banner'),
+			'supports' => array( 'title', 'thumbnail'),
+			'show_in_rest' => true 
+		)
+	);
+}
+	// Hooking up our function to theme setup
+add_action( 'init', 'create_posttype_banner' );	
 
 
 
@@ -321,11 +340,11 @@ add_action('rest_api_init', function() {
 			'update_callback' => null,
 			'schema' => null,
 	));
-	register_rest_field('home_image', 'thumbnail_url', array(
-		'get_callback' => 'get_thumbnail_url',
-		'update_callback' => null,
-		'schema' => null,
-));
+	register_rest_field('banner', 'thumbnail_url', array(
+			'get_callback' => 'get_thumbnail_url',
+			'update_callback' => null,
+			'schema' => null,
+	));
 });
 
 
@@ -334,8 +353,8 @@ function expose_acf_fields_in_rest_api() {
     if (function_exists('acf_add_local_field_group')) {
         // Adiciona o filtro para o Custom Post Type 'products'
         add_filter('rest_prepare_products', 'add_acf_fields_to_rest_response', 10, 3);
-        // Adiciona o filtro para o Custom Post Type 'homeImage'
-        add_filter('rest_prepare_homeImage', 'add_acf_fields_to_rest_response', 10, 3);
+        // Adiciona o filtro para o Custom Post Type 'home_image'
+        add_filter('rest_prepare_home_image', 'add_acf_fields_to_rest_response', 10, 3);
     }
 }
 

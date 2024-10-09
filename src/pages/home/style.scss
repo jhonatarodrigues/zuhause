@@ -2,10 +2,30 @@
 @import "@/styles/functions.scss";
 
 .banner {
-  height: 27.5rem;
-  background: url("../../assets/image/banner.jpg") no-repeat center;
-  @include responsive("mobile") {
-    height: 15.625rem;
+  .imageBanner {
+    width: 100vw;
+    height: 27.5rem;
+    background-size: cover !important;
+    @include responsive("mobile") {
+      height: 15.625rem;
+    }
+  }
+  .carousel-container-home {
+    .react-multi-carousel-dot-list {
+      bottom: 0;
+      margin-bottom: 1.25rem;
+      li {
+        button {
+          border: 0;
+          background-color: $white;
+        }
+        &.react-multi-carousel-dot--active {
+          button {
+            background-color: $green;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -130,8 +150,9 @@
       flex-direction: column;
     }
     .one {
-      width: 27.8125rem;
+      width: 50%;
       background-size: cover !important;
+      background: $lightGray;
       @include responsive("mobile") {
         width: 100%;
         height: 15.625rem;
@@ -139,16 +160,18 @@
       }
     }
     .block {
-      margin-left: 1.875rem;
+      padding-left: 1.875rem;
+      width: 50%;
       @include responsive("mobile") {
-        margin-left: 0;
+        padding-left: 0;
       }
       .two {
         height: 15.625rem;
-        width: 39.6875rem;
+        width: 100%;
         background: #0f0;
         margin-bottom: 1.875rem;
         background-size: cover !important;
+        background: $lightGray;
 
         &:last-child {
           margin-bottom: 0;

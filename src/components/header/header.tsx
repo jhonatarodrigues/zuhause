@@ -5,6 +5,7 @@ import LogoSvg from '@/assets/svg/logo'
 import BuyWhatsApp from '@/assets/svg/buyWhatsApp'
 
 import './styles.scss'
+import { Link } from 'react-router-dom';
 
 const headerComponent = () => {
 
@@ -15,12 +16,16 @@ const headerComponent = () => {
       <BaseContent>
         <div className="baseInfo">
 
-          <div className="logo">
-            <LogoSvg />
-          </div>
+          <Link to="/">
+            <div className="logo">
+              <LogoSvg />
+            </div>
+          </Link>
 
           <div className="buyWhatsapp">
-            <BuyWhatsApp />
+            <a href="https://wa.me/+5519989582085?text=olá, vim pelo site da Zuhause" target='_blank' rel="noreferrer" >
+              <BuyWhatsApp />
+            </a>
           </div>
 
           <div className="socialContent">
