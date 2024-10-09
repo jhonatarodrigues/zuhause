@@ -24,7 +24,7 @@ const BoxOffer = ({product}: BoxOfferProps) => {
       {product.acf.novo_preco && (
         <div className="newPrice">por: <strong>{formatPrice(parseFloat(product.acf.novo_preco))}</strong></div>
       )}
-      <a href={`https://wa.me/+5519989582085?text=estou interessado no produto ${product.title.rendered}`} target='_blank' rel="noreferrer">
+      <a href={`https://wa.me/+${process.env.REACT_APP_WHATHSAPP_NUMBER}?text=estou interessado no produto ${product.title.rendered}`} target='_blank' rel="noreferrer">
         <Button title="Fale com um consultor" />
       </a>
     </div>

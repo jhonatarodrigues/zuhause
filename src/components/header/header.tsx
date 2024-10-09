@@ -23,7 +23,7 @@ const headerComponent = () => {
           </Link>
 
           <div className="buyWhatsapp">
-            <a href="https://wa.me/+5519989582085?text=olá, vim pelo site da Zuhause" target='_blank' rel="noreferrer" >
+            <a href={`https://wa.me/+${process.env.REACT_APP_WHATHSAPP_NUMBER}?text=olá, vim pelo site da Zuhause`} target='_blank' rel="noreferrer" >
               <BuyWhatsApp />
             </a>
           </div>
