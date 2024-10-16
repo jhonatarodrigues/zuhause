@@ -372,3 +372,16 @@ function add_acf_fields_to_rest_response($response, $post, $request) {
 
 // Hooking up our function to theme setup
 add_action('init', 'expose_acf_fields_in_rest_api');
+
+function redirect_to_admin_dashboard() {
+	// Verifica se não está no painel de administração e se é a página inicial
+	if (!is_admin() && is_front_page()) {
+			// URL do painel de administração
+			$admin_url = admin_url();
+			
+			// Realiza o redirecionamento
+			wp_redirect($admin_url);
+			exit();
+	}
+}
+add_action('template_redirect', 'redirect_to_admin_dashboard');
