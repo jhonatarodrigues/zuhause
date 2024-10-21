@@ -267,9 +267,39 @@ function remove_menus() {
     
     // Remove o menu de Custom Post Type 'products'
     // remove_menu_page('edit.php?post_type=products');
+
+		// Remove o menu do ACF Pro
+    remove_menu_page('edit.php?post_type=acf-field-group');
+
+		// Remove o menu do CPT UI
+		remove_menu_page('cptui_main_menu');
+
+		// Remove o menu do Painel de Administração
+    remove_menu_page('index.php');
 }
 
 add_action('admin_menu', 'remove_menus');
+
+
+// Função para remover itens da barra de administração superior
+function remove_admin_bar_items($wp_admin_bar) {
+	// Remove o item "Novo"
+	$wp_admin_bar->remove_node('new-content');
+	
+	// Remove o item "Atualizações"
+	$wp_admin_bar->remove_node('updates');
+	
+	// Remove o item "Comentários"
+	$wp_admin_bar->remove_node('comments');
+
+	// Remove o logo do WordPress
+	$wp_admin_bar->remove_node('wp-logo');
+    
+	// Remove o nome do site
+	$wp_admin_bar->remove_node('site-name');
+}
+
+add_action('admin_bar_menu', 'remove_admin_bar_items', 999);
 
 
 /* Custom Post Type Start */
