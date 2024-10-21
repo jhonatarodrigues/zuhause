@@ -18,7 +18,10 @@ type Product = {
   template: string;
   class_list: string[];
   acf: {
-    [key: string]: string;
+    preco: string;
+    novo_preco: string;
+    imagens: string[];
+    // [key: string]: string;
   };
   thumbnail_url: string;
   _links: Record<string, unknown>;

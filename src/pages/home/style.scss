@@ -100,9 +100,15 @@
   }
   .contentOffer,
   .contentOfferMobile {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    align-items: stretch;
+
+    .item {
+      width: 100%;
+      margin: 0;
+    }
   }
   .contentOffer {
     @include responsive("mobile") {

@@ -283,7 +283,7 @@ function create_posttype_products() {
 			'public' => true,
 			'has_archive' => false,
 			'rewrite' => array('slug' => 'products'),
-			'supports' => array( 'title', 'thumbnail',  ),
+			'supports' => array( 'title'),
 			'show_in_rest' => true // Adiciona suporte para a REST API
 		)
 	);
