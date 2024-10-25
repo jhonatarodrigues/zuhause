@@ -14,7 +14,7 @@ const ContactInformation = () => {
             Atendimento
           </div>
           <p className="text">
-            Segunda à Sexta 09h às 12h e 13h30 às 18h30, <br/>
+            Segunda à Sexta 09h às 18h, <br/>
             Sábado 09h às 13h
           </p>
         </div>
