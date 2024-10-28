@@ -297,6 +297,9 @@ function remove_admin_bar_items($wp_admin_bar) {
     
 	// Remove o nome do site
 	$wp_admin_bar->remove_node('site-name');
+
+	// Remove o item "Ver Post"
+	$wp_admin_bar->remove_node('view');
 }
 
 add_action('admin_bar_menu', 'remove_admin_bar_items', 999);
