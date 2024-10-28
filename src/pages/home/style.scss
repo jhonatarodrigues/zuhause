@@ -2,6 +2,19 @@
 @import "@/styles/functions.scss";
 
 .banner {
+  .carousel-container-home {
+    display: block;
+    @include responsive("mobile") {
+      display: none;
+    }
+  }
+  .carousel-container-home-mobile {
+    display: none;
+    @include responsive("mobile") {
+      display: block;
+    }
+  }
+
   .imageBanner {
     width: 100vw;
     height: 27.5rem;
@@ -10,7 +23,8 @@
       height: 15.625rem;
     }
   }
-  .carousel-container-home {
+  .carousel-container-home,
+  .carousel-container-home-mobile {
     .react-multi-carousel-dot-list {
       bottom: 0;
       margin-bottom: 1.25rem;
@@ -170,6 +184,7 @@
       width: 50%;
       @include responsive("mobile") {
         padding-left: 0;
+        width: 100%;
       }
       .two {
         height: 15.625rem;

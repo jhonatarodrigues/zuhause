@@ -85,17 +85,42 @@ const HomePage = () => {
     return (
       <div className="banner">
         {banner && banner.length > 0 && (
-          <Carousel 
-            responsive={responsiveCarousel} 
-            showDots
-            infinite={false}
-            containerClass="carousel-container-home"
-          >
-            {banner && banner.map((banner, index) => (
-              <div className="imageBanner" style={{background: banner.thumbnail_url? `url(${banner.thumbnail_url}) center no-repeat` : ''}}></div>
-            ))}
-            
+          <>
+            <Carousel 
+              responsive={responsiveCarousel} 
+              showDots
+              infinite={false}
+              containerClass="carousel-container-home"
+            >
+              {banner && banner.map((banner, index) => {
+                if(!banner.thumbnail_url) {
+                  return null;
+                }
+
+                return (
+                  <div className="imageBanner" style={{background: `url(${banner.thumbnail_url}) center no-repeat`}}></div>
+                )
+              })}
+            </Carousel>
+
+            <Carousel 
+              responsive={responsiveCarousel} 
+              showDots
+              infinite={false}
+              containerClass="carousel-container-home-mobile"
+            >
+            {banner && banner.map((banner) => {
+              if(!banner.acf.banner_mobile) {
+                return null;
+              }
+
+              return (
+                <div className="imageBanner" style={{background:  `url(${banner.acf.banner_mobile}) center no-repeat` }}></div>
+              );
+            }
+            )}
           </Carousel>
+         </>
         )}
       </div>
     )

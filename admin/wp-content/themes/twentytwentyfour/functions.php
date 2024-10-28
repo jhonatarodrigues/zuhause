@@ -385,6 +385,8 @@ function expose_acf_fields_in_rest_api() {
         add_filter('rest_prepare_products', 'add_acf_fields_to_rest_response', 10, 3);
         // Adiciona o filtro para o Custom Post Type 'home_image'
         add_filter('rest_prepare_home_image', 'add_acf_fields_to_rest_response', 10, 3);
+				//banner
+				add_filter('rest_prepare_banner', 'add_acf_fields_to_rest_response', 10, 3);
     }
 }
 
